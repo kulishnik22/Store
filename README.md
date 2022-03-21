@@ -24,7 +24,7 @@ After that, run the `flutter packages get` command.
 Next, add tho following imports to your project.
 
 ```dart
-import 'package:data_store/store.dart';
+import 'package:data_storeholder/store.dart';
 ```
 
 ## Usage

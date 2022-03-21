@@ -1,4 +1,4 @@
-import 'package:data_store/store.dart';
+import 'package:data_storeholder/store.dart';
 
 void main() {
   //Obtaining singleton StoreHolder instance
