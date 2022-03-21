@@ -1,4 +1,4 @@
-import 'package:store/store.dart';
+import 'package:data_store/store.dart';
 import 'package:test/test.dart';
 
 void main() {
