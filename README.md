@@ -1,6 +1,6 @@
 # Store
 
-**Simple data storage and retrieval package for your Dart project**
+**Simple data storage and retrieval package for your Dart project**  
 ![StoreVersion](https://img.shields.io/badge/Store-1.0.0-blueviolet)
 
 ## Features
