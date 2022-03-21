@@ -16,7 +16,7 @@ First, add the following dependency to your pubspec.yaml.
 
 ```yaml
 dependencies:
-  data_storeholder: ^1.0.0
+  data_storeholder: ^1.0.1
 ```
 
 After that, run the `flutter packages get` command.
