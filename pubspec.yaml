@@ -1,5 +1,7 @@
 name: store
 description: Simple package that allows you to store, retrieve and listen to your data anywhere across in your project.
+author: Kulishnik22
+homepage: https://github.com/kulishnik22/Store
 version: 1.0.0
 
 environment:
