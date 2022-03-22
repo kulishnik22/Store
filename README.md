@@ -38,7 +38,7 @@ Store class is wrapper for your data. It can hold any type or object and adds us
 #### Default constructor:
 
 ```dart
-Store<String> stringStore = Store("Some default value");
+Store<String> stringStore = Store('Some default value');
 ```
 
 #### Empty constructor:
@@ -52,11 +52,11 @@ Store<String> stringStore = Store.empty();
 Store provides getter and setter for the `data` variable
 
 ```dart
-stringStore.data = "New data!";
+stringStore.data = 'New data!';
 print(stringStore.data);
 ```
 
-This example should print "New data!" in console.
+This example should print 'New data!' in console.
 Let's create listener for the variable so we don't have to call print method each time the data changes.
 We can call `addOnDataChangedListener` method that accepts Function as parameter. The function will provide the data variable as parameter.
 
@@ -67,17 +67,17 @@ stringStore.addOnDataChangedListener((data) => print(data));
 Now each time we call the setter for the data variable inside of our stringStore, all listeners will be notified.
 
 ```dart
-storeString.data = "Data has changed!";
+storeString.data = 'Data has changed!';
 ```
 
-This example should print "Data has changed!" in console.
+This example should print 'Data has changed!' in console.
 In case we don't want to change the data but we want to notify the listeners, we can call `notifyListeners` method.
 
 ```dart
 storeString.notifyListeners();
 ```
 
-This should again print "Data has changed!" because that is the current value stored in data variable.
+This should again print 'Data has changed!' because that is the current value stored in data variable.
 
 ---
 
