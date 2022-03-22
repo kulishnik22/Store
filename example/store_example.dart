@@ -11,9 +11,9 @@ void main() {
   stringStore.addOnDataChangedListener((data) => print(data));
 
   //Retrieving the Store instance from StoreHolder using the specified key
-  //Note that the Store instance has to be cast to correct type
-  Store<String> stringStore2 =
-      storeHolder.getStoreInstance('stringStore') as Store<String>;
+  //Note that the Store has to have the correct type
+  //We recommend to name your key such that they contain the type
+  Store<String> stringStore2 = storeHolder.getStoreInstance('stringStore');
   //Changing the data inside the store instance which triggers the listener
   stringStore2.data = 'notified!';
   //If we only want to trigger the listeners without changing the data, we call 'notifyListeners' method
@@ -29,7 +29,7 @@ void main() {
   //The new storeHolder2 variable should hold all instances that storeHolder has
   if (storeHolder2.getAllStoreInstanceKeys().contains('integerStore')) {
     Store<int> innerIntegerStore =
-        storeHolder2.getStoreInstance('integerStore') as Store<int>;
+        storeHolder2.getStoreInstance('integerStore');
     innerIntegerStore.addOnDataChangedListener((data) => print(data! + 11));
   }
   //Now let's call notifyListeners from the integerStore and observe that the listener in innerIntegerStore is called
