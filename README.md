@@ -21,7 +21,7 @@ dependencies:
 
 After that, run the `flutter packages get` or `dart pub get` command.
 
-Next, add tho following import to your project class.
+Next, add the following import places where you need it.
 
 ```dart
 import 'package:data_storeholder/store.dart';
