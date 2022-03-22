@@ -97,14 +97,14 @@ StoreHolder storeHolder = StoreHolder();
 
 ### Usage
 
-We alreadt created our Store instance. Now let's store it in StoreHolder so we can access it anywhere in our project.
+We already created our Store instance. Now let's store it in StoreHolder so we can access it anywhere in our project.
 To store it, we use `addStoreInstance` method that accepts String key and Store instance as parameter.
 
 ```dart
 storeHolder.addStoreInstance('stringStore1', stringStore);
 ```
 
-> We recommend to name your key such that it contains type of your Store instance as to avoid type mismatch.
+> We recommend to name your key such that it contains the type of your Store instance as to avoid type mismatch.
 
 Now the stringStore is stored in StoreHolder. We can access it anywhere else in project by calling `getStoreInstance` which accepts String key as parameter.
 
@@ -120,7 +120,7 @@ If we no longer need the Store instance to be stored in StoreHolder, we can call
 storeHolder.removeStoreInstance('stringStore1');
 ```
 
-The instance of our stringStore should still exist in place where it was created but is no longer accessable from StoreHolder.
+The instance of our stringStore should still exist in place where it was created but it's no longer accessable from StoreHolder.
 In case we need to see all the keys stored in StoreHolder, we can call `getAllStoreInstanceKeys` which returns a list of Strings.
 
 ```dart
