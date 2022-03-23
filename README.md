@@ -1,7 +1,7 @@
 # Store
 
 **Simple package that allows you to store, retrieve and listen to your data anywhere across in your project.**  
-![StoreVersion](https://img.shields.io/badge/Store-1.0.2-blueviolet)
+![StoreVersion](https://img.shields.io/badge/Store-1.0.3-blueviolet)
 
 ## Features
 
@@ -16,7 +16,7 @@ First, add the following dependency to your pubspec.yaml.
 
 ```yaml
 dependencies:
-  data_storeholder: ^1.0.2
+  data_storeholder: ^1.0.3
 ```
 
 After that, run the `flutter packages get` or `dart pub get` command.
