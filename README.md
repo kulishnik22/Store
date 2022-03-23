@@ -1,6 +1,6 @@
 # Store
 
-**Simple package that allows you to store, retrieve and listen to your data anywhere across in your project.**  
+**Simple package that allows you to store, retrieve and listen to your data anywhere across your project.**  
 ![StoreVersion](https://img.shields.io/badge/Store-1.0.3-blueviolet)
 
 ## Features
@@ -21,7 +21,7 @@ dependencies:
 
 After that, run the `flutter packages get` or `dart pub get` command.
 
-Next, add the following import places where you need it.
+Next, add the following import to places where you need it.
 
 ```dart
 import 'package:data_storeholder/store.dart';
