@@ -21,11 +21,28 @@ class StoreHolder {
   ///Used to initialize the only instance of itself
   StoreHolder._internal();
 
-  ///Method that return generic [Store] instance
+  ///Method that returns generic [Store] instance
   ///
   ///Expects String [key] as parameter, retrieves the value from [_storeInstanceMap]
-  ///and casts it to generic [Store]
+  ///In case the value is null, it returns empty Store instance
+  ///If the value is not null, it is cast to generic [Store] and returned
   Store<T> getStoreInstance<T>(String key) {
+    if (_storeInstanceMap[key] == null) {
+      return Store.empty();
+    } else {
+      return _storeInstanceMap[key] as Store<T>;
+    }
+  }
+
+  ///Method that returns generic [Store] instance
+  ///
+  ///Expects String [key] as parameter, retrieves the value from [_storeInstanceMap]
+  ///In case the value is null, it returns null
+  ///If the value is not null, it is cast to generic [Store] and returned
+  Store<T>? getNullableStoreInstance<T>(String key) {
+    if (_storeInstanceMap[key] == null) {
+      return null;
+    }
     return _storeInstanceMap[key] as Store<T>;
   }
 

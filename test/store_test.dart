@@ -18,7 +18,14 @@ void main() {
             storeHolderB.getStoreInstance('stringStore')));
     test('Instance removal test', () {
       storeHolderA.removeStoreInstance('stringStore');
-      expect(storeHolderB.getStoreInstance('stringStore'), null);
+      expect(storeHolderB.getNullableStoreInstance('stringStore'), null);
+    });
+
+    test('Instance null safety test', () {
+      expect(storeHolderA.getNullableStoreInstance('thisInstanceDoesNotExist'),
+          null);
+      expect(storeHolderA.getStoreInstance('thisInstanceDoesNotExist'),
+          Store.empty());
     });
 
     test('Key list retrieval test', () {
@@ -32,19 +39,25 @@ void main() {
   group('Store tests', () {
     Store<bool> boolStore = Store(false);
     bool? expectedValue;
+    void expectedValueFunction(dynamic data) => expectedValue = data;
 
     test('Getting data test', () => expect(boolStore.data, false));
 
-    test(
-        'Listener addition test',
-        () =>
-            boolStore.addOnDataChangedListener((data) => expectedValue = data));
+    test('Listener addition test',
+        () => boolStore.addOnDataChangedListener(expectedValueFunction));
 
     test('Setting data test', () {
       boolStore.data = true;
       expect(boolStore.data, true);
     });
 
-    test('Listener trigger test', () => expect(boolStore.data, expectedValue));
+    test(
+        'Listener triggered test', () => expect(boolStore.data, expectedValue));
+
+    test('Listener removal test', () {
+      boolStore.removeOnDataChangedListener(expectedValueFunction);
+      boolStore.data = !boolStore.data!;
+      expect(boolStore.data, !expectedValue!);
+    });
   });
 }

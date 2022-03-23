@@ -8,9 +8,13 @@ void main() {
   storeHolder.addStoreInstance('stringGreetingStore', hiStore);
 
   StoreHolder sameStoreHolder = StoreHolder();
-  Store<String> helloStore =
+  Store<String>? helloStore =
+      sameStoreHolder.getNullableStoreInstance('stringGreetingStore');
+  helloStore!.data = 'Hello!';
+
+  Store<String> nonNullHelloStore =
       sameStoreHolder.getStoreInstance('stringGreetingStore');
-  helloStore.data = 'Hello!';
+  print(nonNullHelloStore.data);
 
   if (storeHolder == sameStoreHolder) {
     print('These StoreHolders are the same!');

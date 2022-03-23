@@ -3,7 +3,32 @@ class Store<T> {
   T? _data;
 
   ///List of listener Functions
-  final List<Function(T?)> _storeListeners = [];
+  final List<Function(T? data)> _storeListeners = [];
+
+  ///Custom operator
+  @override
+  bool operator ==(Object other) =>
+      other is Store<T> &&
+      other._data == _data &&
+      _listsAreEqual(_storeListeners, other._storeListeners);
+
+  ///hashCode
+  @override
+  int get hashCode => Object.hash(_data, _storeListeners);
+
+  ///Helper function for checking equality of lists
+  ///
+  ///If [listA] and [listB] have different length, return false
+  ///If [listB] contains all elements as [listA], return true, otherwise return false
+  bool _listsAreEqual(
+    List<Function(T? data)> listA,
+    List<Function(T? data)> listB,
+  ) {
+    if (listA.length != listB.length) {
+      return false;
+    }
+    return listA.every((element) => listB.contains(element));
+  }
 
   ///Getter for user stored data
   ///
@@ -34,8 +59,16 @@ class Store<T> {
   ///
   ///Expects Function of type [T] called [listener]
   ///Adds the [listener] to [_storeListeners] list
-  addOnDataChangedListener(Function(T?) listener) {
+  addOnDataChangedListener(Function(T? data) listener) {
     _storeListeners.add(listener);
+  }
+
+  ///Method for removing listener
+  ///
+  ///Expects Function of type [T] called [listener]
+  ///Removes the [listener] from [_storeListeners] list
+  removeOnDataChangedListener(Function(T? data) listener) {
+    _storeListeners.remove(listener);
   }
 
   ///Method for notifying all listeners
