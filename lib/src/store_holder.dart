@@ -54,6 +54,19 @@ class StoreHolder {
     _storeInstanceMap[key] = store;
   }
 
+  ///Method for adding new [Store] instance with safety
+  ///
+  ///Expects String [key] and generic [Store] as parameter
+  ///If instance in map at given [key] is null, the store is added
+  ///If instance in map at given [key] is not null, the instance is
+  /// preserved and nothing is overwriten.
+  ///Returns true if the instance was added and false if the value was preserved.
+  bool safeAddStoreInstance<T>(String key, Store<T> store) {
+    bool instanceIsNull = _storeInstanceMap[key] == null;
+    _storeInstanceMap[key] = instanceIsNull ? store : _storeInstanceMap[key]!;
+    return instanceIsNull;
+  }
+
   ///Method for removing the instance record in [_storeInstanceMap]
   ///
   ///Expects String [key]

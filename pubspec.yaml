@@ -1,7 +1,7 @@
 name: data_storeholder
 description: Simple package that allows you to store, retrieve and listen to your data anywhere across your project.
 homepage: https://github.com/kulishnik22/Store
-version: 1.0.4
+version: 1.0.5
 
 environment:
   sdk: ">=2.16.1 <3.0.0"

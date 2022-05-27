@@ -23,3 +23,7 @@
 - Added `getNullableStoreInstance` method to StoreHolder
 - Added `removeOnDataChangedListener` method to Store
 - Updated README, example and tests
+
+## 1.0.5
+
+- Added `safeAddStoreInstance` to StoreHolder class

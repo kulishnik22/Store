@@ -1,7 +1,7 @@
 # Store
 
 **Simple package that allows you to store, retrieve and listen to your data anywhere across your project.**  
-![StoreVersion](https://img.shields.io/badge/Store-1.0.4-blueviolet)
+![StoreVersion](https://img.shields.io/badge/Store-1.0.5-blueviolet)
 
 ## Features
 
@@ -16,7 +16,7 @@ First, add the following dependency to your pubspec.yaml.
 
 ```yaml
 dependencies:
-  data_storeholder: ^1.0.4
+  data_storeholder: ^1.0.5
 ```
 
 After that, run the `flutter packages get` or `dart pub get` command.
@@ -114,6 +114,14 @@ To store it, we use `addStoreInstance` method that accepts String key and Store 
 
 ```dart
 storeHolder.addStoreInstance('stringStore1', stringStore);
+```
+
+Method `safeAddStoreInstance` is used when we are not sure if there is any Store instance at given key.
+The method return true is the supplied Store instance was added to the map. If there already exists some entry
+at given key, the entry is preserved and the method returns false.
+
+```dart
+storeHolder.safeAddStoreInstance('stringStore1', stringStore);
 ```
 
 > We recommend to name your key such that it contains the type of your Store instance as to avoid type mismatch.
